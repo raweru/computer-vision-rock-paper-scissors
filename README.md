@@ -83,3 +83,46 @@ def get_winner(computer_choice, user_choice):
     elif computer_choice == user_choice:
         print("It's a tie!")
 ```
+
+### Task 3: Create a function to simulate the game
+
+All of the code you've programmed so far relates to one thing: running the game - so you should wrap it all in one function.
+
+Create and call a new function called play.
+Inside the function you will call all the other three functions you've created (get_computer_choice, get_user_choice, and get_winner)
+
+Now when you run the code, it should play a game of Rock-Paper-Scissors, and it should print whether the computer or you won.
+
+```python
+import random
+
+def play():
+    def get_computer_choice():
+        moves = ["Rock", "Paper", "Scissors"]
+        computer_choice =  random.choice(moves)
+        return computer_choice
+
+    def get_user_choice():
+        user_choice = input("Please choose Rock, Paper or Scissors: ")
+        return user_choice
+
+    def get_winner(computer_choice, user_choice):
+        if computer_choice == "Rock" and user_choice == "Paper":
+            print("You won!")
+        elif computer_choice == "Rock" and user_choice == "Scissors":
+            print("You lost!")
+        elif computer_choice == "Paper" and user_choice == "Rock":
+            print("You lost!")
+        elif computer_choice == "Paper" and user_choice == "Scissors":
+            print("You won!")
+        elif computer_choice == "Scissors" and user_choice == "Rock":
+            print("You won!")
+        elif computer_choice == "Scissors" and user_choice == "Paper":
+            print("You lost!")
+        elif computer_choice == user_choice:
+            print("It's a tie!")
+
+    get_winner(get_computer_choice(), get_user_choice())
+
+play()
+```
