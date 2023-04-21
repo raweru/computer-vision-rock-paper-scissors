@@ -2,6 +2,7 @@ from RPS_Template import prediction
 import numpy as np
 
 def get_prediction():
+    # Prediction/Classification
     class_names = open("labels.txt", "r").readlines()
     index = np.argmax(prediction)
     class_name = class_names[index]
