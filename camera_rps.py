@@ -24,24 +24,24 @@ def play():
         print(f"You chose: {labels[index]}")
         return labels[index]
 
-    def get_winner(a, b):
-        if a == "Rock" and b == "Paper":
+    def get_winner(comp, user):
+        if comp == "Rock" and user == "Paper":
             print("You won!")
-        elif a == "Rock" and b == "Scissors":
+        elif comp == "Rock" and user == "Scissors":
             print("You lost!")
-        elif a == "Paper" and b == "Rock":
+        elif comp == "Paper" and user == "Rock":
             print("You lost!")
-        elif a == "Paper" and b == "Scissors":
+        elif comp == "Paper" and user == "Scissors":
             print("You won!")
-        elif a == "Scissors" and b == "Rock":
+        elif comp == "Scissors" and user == "Rock":
             print("You won!")
-        elif a == "Scissors" and b == "Paper":
+        elif comp == "Scissors" and user == "Paper":
             print("You lost!")
         else:
             print("It's a tie!")
 
-    a = get_computer_choice()
-    b = get_prediction()
-    get_winner(a, b)
+    comp = get_computer_choice()
+    user = get_prediction()
+    get_winner(comp, user)
 
 play()

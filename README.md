@@ -142,21 +142,53 @@ The model can make many predictions at once if given many images. In your case y
 ```python
 from RPS_Template import prediction
 import numpy as np
+import random
 
-def get_prediction():
-    # Prediction/Classification
-    class_names = open("labels.txt", "r").readlines()
-    index = np.argmax(prediction)
-    class_name = class_names[index]
-    confidence_score = prediction[0][index]
+def play():
+    def get_computer_choice():
+        moves = ["Rock", "Paper", "Scissors"]
+        computer_choice =  random.choice(moves)
+        print(f"Computer chose: {computer_choice}")
+        return computer_choice
 
-    # Print prediction and confidence score
-    print("Class:", class_name[2:], end="")
-    print("Confidence Score:", str(np.round(confidence_score * 100))[:-2], "%")
+    def get_prediction():
+        with open('labels.txt', 'r') as f:
+            # Read the lines of the file and strip the newline characters
+            lines = [line.strip() for line in f.readlines()]
+        # Create an empty dictionary to store the indices and labels 
+        labels = {}
+        # Loop through the lines and split them into key-value pairs
+        for line in lines:
+            idx, label = line.split()
+            labels[int(idx)] = label
+        index = np.argmax(prediction)
+        #confidence_score = prediction[0][index]
+        print(f"You chose: {labels[index]}")
+        return labels[index]
 
-get_prediction()
+    def get_winner(comp, user):
+        if comp == "Rock" and user == "Paper":
+            print("You won!")
+        elif comp == "Rock" and user == "Scissors":
+            print("You lost!")
+        elif comp == "Paper" and user == "Rock":
+            print("You lost!")
+        elif comp == "Paper" and user == "Scissors":
+            print("You won!")
+        elif comp == "Scissors" and user == "Rock":
+            print("You won!")
+        elif comp == "Scissors" and user == "Paper":
+            print("You lost!")
+        else:
+            print("It's a tie!")
+
+    comp = get_computer_choice()
+    user = get_prediction()
+    get_winner(comp, user)
+
+play()
 ```
 
-![get_prediction output](get_pred_output.png)
+![play() output](play_output.png)
 
 ### Task 2: Count down
