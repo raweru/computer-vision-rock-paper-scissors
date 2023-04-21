@@ -67,20 +67,20 @@ def get_user_choice():
     user_choice = input("Please choose Rock, Paper or Scissors: ")
     return user_choice
 
-def get_winner(computer_choice, user_choice):
-    if computer_choice == "Rock" and user_choice == "Paper":
+def get_winner(comp, user):
+    if comp == "Rock" and user == "Paper":
         print("You won!")
-    elif computer_choice == "Rock" and user_choice == "Scissors":
+    elif comp == "Rock" and user == "Scissors":
         print("You lost!")
-    elif computer_choice == "Paper" and user_choice == "Rock":
+    elif comp == "Paper" and user == "Rock":
         print("You lost!")
-    elif computer_choice == "Paper" and user_choice == "Scissors":
+    elif comp == "Paper" and user == "Scissors":
         print("You won!")
-    elif computer_choice == "Scissors" and user_choice == "Rock":
+    elif comp == "Scissors" and user == "Rock":
         print("You won!")
-    elif computer_choice == "Scissors" and user_choice == "Paper":
+    elif comp == "Scissors" and user == "Paper":
         print("You lost!")
-    elif computer_choice == user_choice:
+    else:
         print("It's a tie!")
 ```
 
@@ -106,23 +106,25 @@ def play():
         user_choice = input("Please choose Rock, Paper or Scissors: ")
         return user_choice
 
-    def get_winner(computer_choice, user_choice):
-        if computer_choice == "Rock" and user_choice == "Paper":
+    def get_winner(comp, user):
+        if comp == "Rock" and user == "Paper":
             print("You won!")
-        elif computer_choice == "Rock" and user_choice == "Scissors":
+        elif comp == "Rock" and user == "Scissors":
             print("You lost!")
-        elif computer_choice == "Paper" and user_choice == "Rock":
+        elif comp == "Paper" and user == "Rock":
             print("You lost!")
-        elif computer_choice == "Paper" and user_choice == "Scissors":
+        elif comp == "Paper" and user == "Scissors":
             print("You won!")
-        elif computer_choice == "Scissors" and user_choice == "Rock":
+        elif comp == "Scissors" and user == "Rock":
             print("You won!")
-        elif computer_choice == "Scissors" and user_choice == "Paper":
+        elif comp == "Scissors" and user == "Paper":
             print("You lost!")
-        elif computer_choice == user_choice:
+        else:
             print("It's a tie!")
 
-    get_winner(get_computer_choice(), get_user_choice())
+    comp = get_computer_choice()
+    user = get_prediction()
+    get_winner(comp, user)
 
 play()
 ```
