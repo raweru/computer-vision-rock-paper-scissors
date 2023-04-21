@@ -157,6 +157,6 @@ def get_prediction():
 get_prediction()
 ```
 
-![get_prediction output](https://photos.app.goo.gl/11doD3xVgijgjTUU6)
+![get_prediction output](get_pred_output.png)
 
 ### Task 2: Count down
