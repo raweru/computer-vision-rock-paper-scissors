@@ -9,7 +9,7 @@ data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 # Define countdown animation function
 def countdown_animation(frame, seconds_left):
     # Draw countdown text on the frame
-    font = cv2.FONT_HERSHEY_SIMPLEX
+    font = cv2.FONT_HERSHEY_TRIPLEX
     text = str(seconds_left)
     textsize = cv2.getTextSize(text, font, 4, 5)[0]
     text_x = int((frame.shape[1] - textsize[0]) / 2)

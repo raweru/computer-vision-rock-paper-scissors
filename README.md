@@ -260,6 +260,8 @@ cap.release()
 cv2.destroyAllWindows()
 ```
 
+![Countdown](countdown.png)
+
 ### Task 3: Repeat until a player gets three victories
 
 At this stage we need to combine the two pieces of code: RPS-countdown and camera_rps. This is needed so that the RPS-countdown script runs anew inside play() function for every round of the game. After user or computer reaches 3 wins, the game is over and the final result is displayed on the screen.
@@ -393,3 +395,9 @@ play()
 ```
 
 ![Final Output after 3 wins](final_output.png)
+
+## Conclusion
+
+With the code above (and model training with [Teachable Machine](https://teachablemachine.withgoogle.com/)) we build created a nice Rock-Paper-Scissors game that we can play with our computer via a webcam. Around 3000 photos of each class was used to train the model to get a pretty reliable confidence score. Photos were taken at day/night (lighting variation) and in different clothes. We included a smooth count down animation on top of the camera video feed (not individual frames).
+
+Game starts with opening a window with our webcam feed and counts down from 5. It then predicts the class from the last frame recorded when count down reaches 0. That prediction is then compared against the computer's choice and run through the game logic. It then adds a point to the user or computer. Game is over when either reaches 3 points.
