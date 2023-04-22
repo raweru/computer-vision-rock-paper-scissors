@@ -392,4 +392,4 @@ def play():
 play()
 ```
 
-![Final Output after 3 wins](play_output.png)
+![Final Output after 3 wins](final_output.png)
