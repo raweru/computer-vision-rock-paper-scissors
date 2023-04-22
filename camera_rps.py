@@ -1,4 +1,4 @@
-from RPS_Template import prediction
+from RPS_countdown import prediction
 import numpy as np
 import random
 
