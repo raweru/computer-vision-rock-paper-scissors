@@ -34,23 +34,38 @@ The second function will ask the user for an input and return it.
 import random
 
 def get_computer_choice():
-    """Gets the computer's choice of Rock, Paper, or Scissors.
     
-    Returns:
-        The computer's choice as a string.
-    """
+    '''The function "get_computer_choice" returns a randomly chosen move from a list of "Rock",
+    "Paper", and "Scissors".
+    
+    Returns
+    -------
+        a randomly chosen move from the list of "Rock", "Paper", and "Scissors".
+    
+    '''
+    
     moves = ["Rock", "Paper", "Scissors"]
     computer_choice =  random.choice(moves)
+    
     return computer_choice
 
 def get_user_choice():
-    """Gets the user's choice of Rock, Paper, or Scissors.
     
-    Returns:
-        The user's choice as a string.
-    """
-    user_choice = input("Please choose Rock, Paper or Scissors: ")
-    return user_choice
+    '''This function prompts the user to choose between Rock, Paper, or Scissors and returns their
+    choice.
+    
+    Returns
+    -------
+        the user's choice of either "Rock", "Paper", or "Scissors".
+    
+    '''
+
+    while True:
+        user_choice = input("Please choose Rock, Paper or Scissors: ").capitalize()
+        if user_choice in ["Rock", "Paper", "Scissors"]:
+            return user_choice
+        else:
+            print("Please choose either Rock, Paper, or Scissors")
 ```
 
 ### Task 2: Figure out who won
@@ -69,39 +84,73 @@ If the computer wins, the function should print "You lost", if the user wins, th
 import random
 
 def get_computer_choice():
-    """Gets the computer's choice of Rock, Paper, or Scissors.
     
-    Returns:
-        The computer's choice as a string.
-    """
+    '''The function "get_computer_choice" returns a randomly chosen move from a list of "Rock",
+    "Paper", and "Scissors".
+    
+    Returns
+    -------
+        a randomly chosen move from the list of "Rock", "Paper", and "Scissors".
+    
+    '''
+    
     moves = ["Rock", "Paper", "Scissors"]
     computer_choice =  random.choice(moves)
+    
     return computer_choice
 
-def get_user_choice():
-    """Gets the user's choice of Rock, Paper, or Scissors.
-    
-    Returns:
-        The user's choice as a string.
-    """
-    user_choice = input("Please choose Rock, Paper or Scissors: ")
-    return user_choice
 
-def get_winner(comp, user):
-    """Explains the game rules and logic."""
-    if comp == "Rock" and user == "Paper":
+def get_user_choice():
+    
+    '''This function prompts the user to choose between Rock, Paper, or Scissors and returns their
+    choice.
+    
+    Returns
+    -------
+        the user's choice of either "Rock", "Paper", or "Scissors".
+    
+    '''
+    while True:
+        user_choice = input("Please choose Rock, Paper or Scissors: ").capitalize()
+        if user_choice in ["Rock", "Paper", "Scissors"]:
+            return user_choice
+        else:
+            print("Please choose either Rock, Paper, or Scissors")
+
+
+def get_winner(computer_choice, user_choice):
+    
+    '''The function takes in two choices (computer and user) and determines the winner based on the
+    rules of rock-paper-scissors.
+    
+    Parameters
+    ----------
+    computer_choice
+        The choice made by the computer in a game of rock-paper-scissors.
+    user_choice
+        The choice made by the user, which can be "Rock", "Paper", or "Scissors".
+    
+    '''
+    
+    if computer_choice == "Rock" and user_choice == "Paper":
         print("You won!")
-    elif comp == "Rock" and user == "Scissors":
+        
+    elif computer_choice == "Rock" and user_choice == "Scissors":
         print("You lost!")
-    elif comp == "Paper" and user == "Rock":
+        
+    elif computer_choice == "Paper" and user_choice == "Rock":
         print("You lost!")
-    elif comp == "Paper" and user == "Scissors":
+        
+    elif computer_choice == "Paper" and user_choice == "Scissors":
         print("You won!")
-    elif comp == "Scissors" and user == "Rock":
+        
+    elif computer_choice == "Scissors" and user_choice == "Rock":
         print("You won!")
-    elif comp == "Scissors" and user == "Paper":
+        
+    elif computer_choice == "Scissors" and user_choice == "Paper":
         print("You lost!")
-    else:
+        
+    elif computer_choice == user_choice:
         print("It's a tie!")
 ```
 
@@ -117,48 +166,86 @@ Now when you run the code, it should play a game of Rock-Paper-Scissors, and it 
 ```python
 import random
 
-def play():
-    def get_computer_choice():
-        """Gets the computer's choice of Rock, Paper, or Scissors.
-        
-        Returns:
-            The computer's choice as a string.
-        """
-        moves = ["Rock", "Paper", "Scissors"]
-        computer_choice =  random.choice(moves)
-        return computer_choice
+def get_computer_choice():
+    
+    '''The function "get_computer_choice" returns a randomly chosen move from a list of "Rock",
+    "Paper", and "Scissors".
+    
+    Returns
+    -------
+        a randomly chosen move from the list of "Rock", "Paper", and "Scissors".
+    
+    '''
+    
+    moves = ["Rock", "Paper", "Scissors"]
+    computer_choice =  random.choice(moves)
+    
+    return computer_choice
 
-    def get_user_choice():
-        """Gets the user's choice of Rock, Paper, or Scissors.
-        
-        Returns:
-            The user's choice as a string.
-        """
-        user_choice = input("Please choose Rock, Paper or Scissors: ")
-        return user_choice
 
-    def get_winner(comp, user):
-        """Explains the game rules and logic."""
-        if comp == "Rock" and user == "Paper":
-            print("You won!")
-        elif comp == "Rock" and user == "Scissors":
-            print("You lost!")
-        elif comp == "Paper" and user == "Rock":
-            print("You lost!")
-        elif comp == "Paper" and user == "Scissors":
-            print("You won!")
-        elif comp == "Scissors" and user == "Rock":
-            print("You won!")
-        elif comp == "Scissors" and user == "Paper":
-            print("You lost!")
+def get_user_choice():
+    
+    '''This function prompts the user to choose between Rock, Paper, or Scissors and returns their
+    choice.
+    
+    Returns
+    -------
+        the user's choice of either "Rock", "Paper", or "Scissors".
+    
+    '''
+    while True:
+        user_choice = input("Please choose Rock, Paper or Scissors: ").capitalize()
+        if user_choice in ["Rock", "Paper", "Scissors"]:
+            return user_choice
         else:
-            print("It's a tie!")
+            print("Please choose either Rock, Paper, or Scissors")
 
-    comp = get_computer_choice()
-    user = get_prediction()
-    get_winner(comp, user)
 
-play()
+def get_winner(computer_choice, user_choice):
+    
+    '''The function takes in two choices (computer and user) and determines the winner based on the
+    rules of rock-paper-scissors.
+    
+    Parameters
+    ----------
+    computer_choice
+        The choice made by the computer in a game of rock-paper-scissors.
+    user_choice
+        The choice made by the user, which can be "Rock", "Paper", or "Scissors".
+    
+    '''
+    
+    if computer_choice == "Rock" and user_choice == "Paper":
+        print("You won!")
+        
+    elif computer_choice == "Rock" and user_choice == "Scissors":
+        print("You lost!")
+        
+    elif computer_choice == "Paper" and user_choice == "Rock":
+        print("You lost!")
+        
+    elif computer_choice == "Paper" and user_choice == "Scissors":
+        print("You won!")
+        
+    elif computer_choice == "Scissors" and user_choice == "Rock":
+        print("You won!")
+        
+    elif computer_choice == "Scissors" and user_choice == "Paper":
+        print("You lost!")
+        
+    elif computer_choice == user_choice:
+        print("It's a tie!")
+
+
+def play():
+    
+    '''Plays the game by running the above functions.'''
+    
+    get_winner(get_computer_choice(), get_user_choice())
+
+
+if __name__ == "__main__":
+    play()
 ```
 
 ## Milestone 5: Use the camera to play Rock-Paper-Scissors
@@ -178,60 +265,101 @@ from RPS_Template import prediction
 import numpy as np
 import random
 
-def play():
-    def get_computer_choice():
-        """Gets the computer's choice of Rock, Paper, or Scissors.
-        
-        Returns:
-            The computer's choice as a string.
-        """
-        moves = ["Rock", "Paper", "Scissors"]
-        computer_choice =  random.choice(moves)
-        print(f"Computer chose: {computer_choice}")
+def get_computer_choice():
+    
+    '''The function "get_computer_choice" returns a randomly chosen move from a list of "Rock",
+    "Paper", and "Scissors".
+    
+    Returns
+    -------
+        a randomly chosen move from the list of "Rock", "Paper", and "Scissors".
+    
+    '''
+    
+    moves = ["Rock", "Paper", "Scissors"]
+    computer_choice =  random.choice(moves)
+    
+    return computer_choice
         return computer_choice
 
-    def get_prediction():
-        """Gets the user's choice of Rock, Paper, or Scissors using a machine learning model and webcam.
-        
-        Returns:
-            The user's choice as a string.
-        """
-        with open('labels.txt', 'r') as f:
-            # Read the lines of the file and strip the newline characters
-            lines = [line.strip() for line in f.readlines()]
-        # Create an empty dictionary to store the indices and labels 
-        labels = {}
-        # Loop through the lines and split them into key-value pairs
-        for line in lines:
-            idx, label = line.split()
-            labels[int(idx)] = label
-        index = np.argmax(prediction)
-        #confidence_score = prediction[0][index]
-        print(f"You chose: {labels[index]}")
+
+def get_prediction():
+
+    '''Gets the user's choice of Rock, Paper, or Scissors using a machine learning model and webcam.
+    
+    Returns:
+        The user's choice as a string.
+    '''
+
+    with open('labels.txt', 'r') as f:
+        # Read the lines of the file and strip the newline characters
+        lines = [line.strip() for line in f.readlines()]
+    # Create an empty dictionary to store the indices and labels 
+    labels = {}
+
+    # Loop through the lines and split them into key-value pairs
+    for line in lines:
+        idx, label = line.split()
+        labels[int(idx)] = label
+
+    index = np.argmax(prediction)
+    #confidence_score = prediction[0][index]
+    print(f"You chose: {labels[index]}")
+
+    if labels[index] in ["Rock", "Paper", "Scissors"]:
         return labels[index]
+    
+    #  In case it predicts "Nothing"
+    else:
+        print("Please choose Rock, Paper or Scissors!")
+        self.get_prediction()
 
-    def get_winner(comp, user):
-        """Explains the game rules and logic."""
-        if comp == "Rock" and user == "Paper":
-            print("You won!")
-        elif comp == "Rock" and user == "Scissors":
-            print("You lost!")
-        elif comp == "Paper" and user == "Rock":
-            print("You lost!")
-        elif comp == "Paper" and user == "Scissors":
-            print("You won!")
-        elif comp == "Scissors" and user == "Rock":
-            print("You won!")
-        elif comp == "Scissors" and user == "Paper":
-            print("You lost!")
-        else:
-            print("It's a tie!")
 
-    comp = get_computer_choice()
-    user = get_prediction()
-    get_winner(comp, user)
+def get_winner(computer_choice, user_choice):
+    
+    '''The function takes in two choices (computer and user) and determines the winner based on the
+    rules of rock-paper-scissors.
+    
+    Parameters
+    ----------
+    computer_choice
+        The choice made by the computer in a game of rock-paper-scissors.
+    user_choice
+        The choice made by the user, which can be "Rock", "Paper", or "Scissors".
+    
+    '''
+    
+    if computer_choice == "Rock" and user_choice == "Paper":
+        print("You won!")
+        
+    elif computer_choice == "Rock" and user_choice == "Scissors":
+        print("You lost!")
+        
+    elif computer_choice == "Paper" and user_choice == "Rock":
+        print("You lost!")
+        
+    elif computer_choice == "Paper" and user_choice == "Scissors":
+        print("You won!")
+        
+    elif computer_choice == "Scissors" and user_choice == "Rock":
+        print("You won!")
+        
+    elif computer_choice == "Scissors" and user_choice == "Paper":
+        print("You lost!")
+        
+    elif computer_choice == user_choice:
+        print("It's a tie!")
 
-play()
+
+def play():
+    
+    '''Plays the game by running the above functions.'''
+    
+    get_winner(get_computer_choice(), get_user_choice())
+
+
+if __name__ == "__main__":
+    play()
 ```
 
 ![play() output](play_output.png)
@@ -251,12 +379,14 @@ data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
 # Define countdown animation function
 def countdown_animation(frame, seconds_left):
-    """Draws a countdown animation on the specified frame.
+
+    '''Draws a countdown animation on the specified frame.
     
     Args:
         frame (ndarray): The frame to draw the countdown animation on.
         seconds_left (int): The number of seconds left in the countdown.
-    """
+    '''
+
     # Draw countdown text on the frame
     font = cv2.FONT_HERSHEY_SIMPLEX
     text = str(seconds_left)
@@ -321,144 +451,207 @@ import random
 import cv2
 from keras.models import load_model
 
+def get_computer_choice():
+    
+    '''The function randomly selects and returns a move (Rock, Paper, or Scissors) for the computer.
+    
+    Returns
+    -------
+        the computer's choice of either "Rock", "Paper", or "Scissors".
+    
+    '''
+    
+    moves = ["Rock", "Paper", "Scissors"]
+    computer_choice =  random.choice(moves)
+    print(f"Computer chose: {computer_choice}")
+    return computer_choice
+
+
+def countdown_animation(frame, seconds_left):
+    
+    '''This function draws a countdown text on webcam feed using OpenCV library in Python.
+    
+    Parameters
+    ----------
+    frame
+        The current frame of the video or image on which the countdown animation will be drawn.
+    seconds_left
+        The number of seconds left in the countdown. This parameter is used to generate the text that will
+    be displayed on the frame.
+    
+    '''
+    
+    # Draw countdown text on the frame
+    font = cv2.FONT_HERSHEY_TRIPLEX
+    text = str(seconds_left)
+    textsize = cv2.getTextSize(text, font, 4, 5)[0]
+    text_x = int((frame.shape[1] - textsize[0]) / 2)
+    text_y = int((frame.shape[0] + textsize[1]) / 2)
+    cv2.putText(frame, text, (text_x, text_y), font, 4, (0, 0, 255), 5)
+
+
+def get_prediction():
+    
+    '''This function loads a pre-trained Keras model and uses it to predict the label of an image captured
+    from a webcam after a countdown animation.
+    
+    Returns
+    -------
+        the label of the predicted object in the final frame captured by the camera.
+    
+    '''
+    
+    model = load_model('keras_model_mat_2_day_night.h5')
+    with open('labels.txt', 'r') as f:
+        # Read the lines of the file and strip the newline characters
+        lines = [line.strip() for line in f.readlines()]
+
+    # Create an empty dictionary to store the indices and labels 
+    labels = {}
+    
+    # Loop through the lines and split them into key-value pairs
+    for line in lines:
+        idx, label = line.split()
+        labels[int(idx)] = label
+    
+    cap = cv2.VideoCapture(0)
+    data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
+    # Set countdown timer
+    countdown_time = 5  # seconds
+    start_time = cv2.getTickCount() / cv2.getTickFrequency()
+
+    # Start countdown
+    while True:
+        # Capture a frame from the camera
+        ret, frame = cap.read()
+        
+        # Check if frame was successfully captured
+        if not ret:
+            print("Unable to capture frame")
+            break
+
+        # Calculate time elapsed
+        time_elapsed = (cv2.getTickCount() / cv2.getTickFrequency()) - start_time
+        # Check if countdown has finished
+
+        if time_elapsed >= countdown_time:
+            break
+
+        # Display countdown animation
+        countdown_animation(frame, countdown_time - int(time_elapsed))
+        # Display the frame
+        cv2.imshow("Countdown", frame)
+        # Wait for a key press
+        key = cv2.waitKey(1)
+
+        if key == ord('q'):
+            break
+
+    # Capture final frame
+    ret, frame = cap.read()
+    
+    # Check if frame was successfully captured
+    if not ret:
+        print("Unable to capture frame")
+
+    # Resize and normalize image
+    resized_frame = cv2.resize(frame, (224, 224), interpolation=cv2.INTER_AREA)
+    image_np = np.array(resized_frame)
+    normalized_image = (image_np.astype(np.float32) / 127.0) - 1 # Normalize the image
+    data[0] = normalized_image
+    # Predict on final frame
+    prediction = model.predict(data)
+    index = np.argmax(prediction)
+    #confidence_score = prediction[0][index]
+    print(f"You chose: {labels[index]}")
+    cap.release()
+    cv2.destroyAllWindows()
+    
+    if labels[index] in ["Rock", "Paper", "Scissors"]:
+        return labels[index]
+    
+    #  In case it predicts "Nothing"
+    else:
+        print("Please choose Rock, Paper or Scissors!")
+        get_prediction()
+
+
+def get_winner(comp, user):
+    
+    '''This function determines the winner of a rock-paper-scissors game between the computer and the user
+    and updates the global variables for the number of wins for each player.
+    
+    Parameters
+    ----------
+    comp
+        represents the computer's choice of rock, paper, or scissors
+    user
+        represents the user's choice of rock, paper, or scissors in a game against the computer.
+    
+    '''
+    
+    global computer_wins
+    global user_wins
+    
+    if comp == "Rock" and user == "Paper":
+        print("You won!")
+        user_wins += 1
+        
+    elif comp == "Rock" and user == "Scissors":
+        print("You lost!")
+        computer_wins += 1
+        
+    elif comp == "Paper" and user == "Rock":
+        print("You lost!")
+        computer_wins += 1
+        
+    elif comp == "Paper" and user == "Scissors":
+        print("You won!")
+        user_wins += 1
+        
+    elif comp == "Scissors" and user == "Rock":
+        print("You won!")
+        user_wins += 1
+        
+    elif comp == "Scissors" and user == "Paper":
+        print("You lost!")
+        computer_wins += 1
+        
+    elif comp == user:
+        print("It's a tie!")
+
+
 def play():
-    """Plays the game of Rock, Paper, Scissors."""
+    
+    '''The function "play" sets the initial scores to 0 and runs a loop until either the computer or user
+    wins three times, calling other functions to get user input and computer choice, and determine the
+    winner of each round.
+    
+    '''
+    
     global computer_wins
     global user_wins
     computer_wins = 0
     user_wins = 0
     
-    def get_computer_choice():
-        """Gets the computer's choice of Rock, Paper, or Scissors.
-        
-        Returns:
-            The computer's choice as a string.
-        """
-        moves = ["Rock", "Paper", "Scissors"]
-        computer_choice =  random.choice(moves)
-        print(f"Computer chose: {computer_choice}")
-        return computer_choice
-
-    def get_prediction():
-        """Gets the user's choice of Rock, Paper, or Scissors using a machine learning model and webcam.
-        
-        Returns:
-            The user's choice as a string.
-        """
-        model = load_model('keras_model_mat_2_day_night.h5')
-        with open('labels.txt', 'r') as f:
-            # Read the lines of the file and strip the newline characters
-            lines = [line.strip() for line in f.readlines()]
-        # Create an empty dictionary to store the indices and labels 
-        labels = {}
-        # Loop through the lines and split them into key-value pairs
-        for line in lines:
-            idx, label = line.split()
-            labels[int(idx)] = label
-        
-        cap = cv2.VideoCapture(0)
-        data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
-
-        # Define countdown animation function
-        def countdown_animation(frame, seconds_left):
-            """Draws a countdown animation on the specified frame.
-            
-            Args:
-                frame (ndarray): The frame to draw the countdown animation on.
-                seconds_left (int): The number of seconds left in the countdown.
-            """
-            # Draw countdown text on the frame
-            font = cv2.FONT_HERSHEY_TRIPLEX
-            text = str(seconds_left)
-            textsize = cv2.getTextSize(text, font, 4, 5)[0]
-            text_x = int((frame.shape[1] - textsize[0]) / 2)
-            text_y = int((frame.shape[0] + textsize[1]) / 2)
-            cv2.putText(frame, text, (text_x, text_y), font, 4, (0, 0, 255), 5)
-
-        # Set countdown timer
-        countdown_time = 5  # seconds
-        start_time = cv2.getTickCount() / cv2.getTickFrequency()
-
-        # Start countdown
-        while True:
-            # Capture a frame from the camera
-            ret, frame = cap.read()
-            # Check if frame was successfully captured
-            if not ret:
-                print("Unable to capture frame")
-                break
-            # Calculate time elapsed
-            time_elapsed = (cv2.getTickCount() / cv2.getTickFrequency()) - start_time
-            # Check if countdown has finished
-            if time_elapsed >= countdown_time:
-                break
-            # Display countdown animation
-            countdown_animation(frame, countdown_time - int(time_elapsed))
-            # Display the frame
-            cv2.imshow("Countdown", frame)
-            # Wait for a key press
-            key = cv2.waitKey(1)
-            if key == ord('q'):
-                break
-
-        # Capture final frame
-        ret, frame = cap.read()
-        # Check if frame was successfully captured
-        if not ret:
-            print("Unable to capture frame")
-        # Resize and normalize image
-        resized_frame = cv2.resize(frame, (224, 224), interpolation=cv2.INTER_AREA)
-        image_np = np.array(resized_frame)
-        normalized_image = (image_np.astype(np.float32) / 127.0) - 1 # Normalize the image
-        data[0] = normalized_image
-        # Predict on final frame
-        prediction = model.predict(data)
-        index = np.argmax(prediction)
-        #confidence_score = prediction[0][index]
-        print(f"You chose: {labels[index]}")
-        cap.release()
-        cv2.destroyAllWindows()
-        return labels[index]
-
-    def get_winner(comp, user):
-        """Explains the game rules and logic."""
-        global computer_wins
-        global user_wins
-        if comp == "Rock" and user == "Paper":
-            print("You won!")
-            user_wins += 1
-        elif comp == "Rock" and user == "Scissors":
-            print("You lost!")
-            computer_wins += 1
-        elif comp == "Paper" and user == "Rock":
-            print("You lost!")
-            computer_wins += 1
-        elif comp == "Paper" and user == "Scissors":
-            print("You won!")
-            user_wins += 1
-        elif comp == "Scissors" and user == "Rock":
-            print("You won!")
-            user_wins += 1
-        elif comp == "Scissors" and user == "Paper":
-            print("You lost!")
-            computer_wins += 1
-        else:
-            print("It's a tie!")
-
     while True:
         
         if computer_wins == 3:
             print(f"Game over! Computer won {computer_wins}:{user_wins}.")
             break
+        
         elif user_wins == 3:
             print(f"Game over! You won {user_wins}:{computer_wins}.")
             break
+        
         else:
             user = get_prediction()
             comp = get_computer_choice()
             get_winner(comp, user)
 
-play()
+
+if __name__ == "__main__":
+    play()
 ```
 
 ![Final Output after 3 wins](final_output.png)
@@ -472,48 +665,95 @@ import cv2
 from keras.models import load_model
 
 class RPS:
-    """Represents a game of Rock, Paper, Scissors.
+    
+    '''Represents a game of Rock, Paper, Scissors.
     
     Attributes:
         computer_wins (int): The number of times the computer has won.
         user_wins (int): The number of times the user has won.
-    """
+    '''
+    
     def __init__(self):
-        """Initializes a new instance of the RPS class with the computer_wins and user_wins attributes set to 0."""
+        
+        '''Initializes a new instance of the RPS class with the computer_wins and user_wins attributes set to 0.'''
+        
         self.computer_wins = 0
         self.user_wins = 0
 
     def play(self):
-        """Plays the game of Rock, Paper, Scissors."""
+        
+        '''The function runs a loop until either the computer or user wins three times, 
+        calling other functions to get user input and computer choice, and determine the
+        winner of each round.
+        
+        '''
+        
         while True:
+            
             if self.computer_wins == 3:
                 print(f"Game over! Computer won {self.computer_wins}:{self.user_wins}.")
                 break
+            
             elif self.user_wins == 3:
                 print(f"Game over! You won {self.user_wins}:{self.computer_wins}.")
                 break
+            
             else:
                 user = self.get_prediction()
                 comp = self.get_computer_choice()
                 self.get_winner(comp, user)
 
     def get_computer_choice(self):
-        """Gets the computer's choice of Rock, Paper, or Scissors.
+    
+        '''The function randomly selects and returns a move (Rock, Paper, or Scissors) for the computer.
         
-        Returns:
-            The computer's choice as a string.
-        """
+        Returns
+        -------
+            the computer's choice of either "Rock", "Paper", or "Scissors".
+        
+        '''
+        
         moves = ["Rock", "Paper", "Scissors"]
         computer_choice =  random.choice(moves)
         print(f"Computer chose: {computer_choice}")
+        
         return computer_choice
+    
+    
+    def countdown_animation(self, frame, seconds_left):
+        
+        '''This function draws a countdown text on a given frame using OpenCV library in Python.
+        
+        Parameters
+        ----------
+        frame
+            The current frame of the video or image on which the countdown text will be drawn.
+        seconds_left
+            The number of seconds left in the countdown. This parameter is used to display the remaining time
+        on the frame.
+        
+        '''
+        
+        # Draw countdown text on the frame
+        font = cv2.FONT_HERSHEY_TRIPLEX
+        text = str(seconds_left)
+        textsize = cv2.getTextSize(text, font, 4, 5)[0]
+        text_x = int((frame.shape[1] - textsize[0]) / 2)
+        text_y = int((frame.shape[0] + textsize[1]) / 2)
+        cv2.putText(frame, text, (text_x, text_y), font, 4, (0, 0, 255), 5)
+
 
     def get_prediction(self):
-        """Gets the user's choice of Rock, Paper, or Scissors using a machine learning model and webcam.
+    
+        '''This function loads a pre-trained Keras model and uses it to predict the label of an image captured
+        from a webcam after a countdown animation.
         
-        Returns:
-            The user's choice as a string.
-        """
+        Returns
+        -------
+            the label of the predicted object in the final frame captured by the camera.
+        
+        '''
+        
         model = load_model('keras_model_mat_2_day_night.h5')
         with open('labels.txt', 'r') as f:
             # Read the lines of the file and strip the newline characters
@@ -527,23 +767,6 @@ class RPS:
         
         cap = cv2.VideoCapture(0)
         data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
-
-        # Define countdown animation function
-        def countdown_animation(frame, seconds_left):
-            """Draws a countdown animation on the specified frame.
-            
-            Args:
-                frame (ndarray): The frame to draw the countdown animation on.
-                seconds_left (int): The number of seconds left in the countdown.
-            """
-            # Draw countdown text on the frame
-            font = cv2.FONT_HERSHEY_TRIPLEX
-            text = str(seconds_left)
-            textsize = cv2.getTextSize(text, font, 4, 5)[0]
-            text_x = int((frame.shape[1] - textsize[0]) / 2)
-            text_y = int((frame.shape[0] + textsize[1]) / 2)
-            cv2.putText(frame, text, (text_x, text_y), font, 4, (0, 0, 255), 5)
-
         # Set countdown timer
         countdown_time = 5  # seconds
         start_time = cv2.getTickCount() / cv2.getTickFrequency()
@@ -552,29 +775,36 @@ class RPS:
         while True:
             # Capture a frame from the camera
             ret, frame = cap.read()
+            
             # Check if frame was successfully captured
             if not ret:
                 print("Unable to capture frame")
                 break
+            
             # Calculate time elapsed
             time_elapsed = (cv2.getTickCount() / cv2.getTickFrequency()) - start_time
             # Check if countdown has finished
+            
             if time_elapsed >= countdown_time:
                 break
+            
             # Display countdown animation
-            countdown_animation(frame, countdown_time - int(time_elapsed))
+            self.countdown_animation(frame, countdown_time - int(time_elapsed))
             # Display the frame
             cv2.imshow("Countdown", frame)
             # Wait for a key press
             key = cv2.waitKey(1)
+            
             if key == ord('q'):
                 break
 
         # Capture final frame
         ret, frame = cap.read()
+        
         # Check if frame was successfully captured
         if not ret:
             print("Unable to capture frame")
+            
         # Resize and normalize image
         resized_frame = cv2.resize(frame, (224, 224), interpolation=cv2.INTER_AREA)
         image_np = np.array(resized_frame)
@@ -587,33 +817,51 @@ class RPS:
         print(f"You chose: {labels[index]}")
         cap.release()
         cv2.destroyAllWindows()
-        return labels[index]
+        
+        if labels[index] in ["Rock", "Paper", "Scissors"]:
+            return labels[index]
+        
+        #  In case it predicts "Nothing"
+        else:
+            print("Please choose Rock, Paper or Scissors!")
+            self.get_prediction()
+
 
     def get_winner(self, comp, user):
-        """Explains the game rules and logic."""
+        
+        '''Explains the game rules and logic.'''
+        
         if comp == "Rock" and user == "Paper":
             print("You won!")
             self.user_wins += 1
+            
         elif comp == "Rock" and user == "Scissors":
             print("You lost!")
             self.computer_wins += 1
+            
         elif comp == "Paper" and user == "Rock":
             print("You lost!")
             self.computer_wins += 1
+            
         elif comp == "Paper" and user == "Scissors":
             print("You won!")
             self.user_wins += 1
+            
         elif comp == "Scissors" and user == "Rock":
             print("You won!")
             self.user_wins += 1
+            
         elif comp == "Scissors" and user == "Paper":
             print("You lost!")
             self.computer_wins += 1
+            
         else:
             print("It's a tie!")
 
-rps_game = RPS()
-rps_game.play()
+
+if __name__ == "__main__":
+    rps_game = RPS()
+    rps_game.play()
 ```
 
 ## Conclusion
