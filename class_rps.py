@@ -3,14 +3,33 @@ import random
 import cv2
 from keras.models import load_model
 
-def play():
-    """Plays the game of Rock, Paper, Scissors."""
-    global computer_wins
-    global user_wins
-    computer_wins = 0
-    user_wins = 0
+class RPS:
+    """Represents a game of Rock, Paper, Scissors.
     
-    def get_computer_choice():
+    Attributes:
+        computer_wins (int): The number of times the computer has won.
+        user_wins (int): The number of times the user has won.
+    """
+    def __init__(self):
+        """Initializes a new instance of the RPS class with the computer_wins and user_wins attributes set to 0."""
+        self.computer_wins = 0
+        self.user_wins = 0
+
+    def play(self):
+        """Plays the game of Rock, Paper, Scissors."""
+        while True:
+            if self.computer_wins == 3:
+                print(f"Game over! Computer won {self.computer_wins}:{self.user_wins}.")
+                break
+            elif self.user_wins == 3:
+                print(f"Game over! You won {self.user_wins}:{self.computer_wins}.")
+                break
+            else:
+                user = self.get_prediction()
+                comp = self.get_computer_choice()
+                self.get_winner(comp, user)
+
+    def get_computer_choice(self):
         """Gets the computer's choice of Rock, Paper, or Scissors.
         
         Returns:
@@ -21,7 +40,7 @@ def play():
         print(f"Computer chose: {computer_choice}")
         return computer_choice
 
-    def get_prediction():
+    def get_prediction(self):
         """Gets the user's choice of Rock, Paper, or Scissors using a machine learning model and webcam.
         
         Returns:
@@ -102,42 +121,28 @@ def play():
         cv2.destroyAllWindows()
         return labels[index]
 
-    def get_winner(comp, user):
+    def get_winner(self, comp, user):
         """Explains the game rules and logic."""
-        global computer_wins
-        global user_wins
         if comp == "Rock" and user == "Paper":
             print("You won!")
-            user_wins += 1
+            self.user_wins += 1
         elif comp == "Rock" and user == "Scissors":
             print("You lost!")
-            computer_wins += 1
+            self.computer_wins += 1
         elif comp == "Paper" and user == "Rock":
             print("You lost!")
-            computer_wins += 1
+            self.computer_wins += 1
         elif comp == "Paper" and user == "Scissors":
             print("You won!")
-            user_wins += 1
+            self.user_wins += 1
         elif comp == "Scissors" and user == "Rock":
             print("You won!")
-            user_wins += 1
+            self.user_wins += 1
         elif comp == "Scissors" and user == "Paper":
             print("You lost!")
-            computer_wins += 1
+            self.computer_wins += 1
         else:
             print("It's a tie!")
 
-    while True:
-        
-        if computer_wins == 3:
-            print(f"Game over! Computer won {computer_wins}:{user_wins}.")
-            break
-        elif user_wins == 3:
-            print(f"Game over! You won {user_wins}:{computer_wins}.")
-            break
-        else:
-            user = get_prediction()
-            comp = get_computer_choice()
-            get_winner(comp, user)
-
-play()
+rps_game = RPS()
+rps_game.play()
